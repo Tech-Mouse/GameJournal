@@ -1,0 +1,14 @@
+FROM java:21
+FROM maven:latest
+
+# image layer
+WORKDIR /springbootapp
+ADD pom.xml /springbootapp
+RUN mvn verify clean --fail-never
+
+# Image layer: with the application
+COPY . /springbootapp
+RUN mvn -v
+RUN mvn clean install -DskipTests
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","./target/GameJournal-1.0-SNAPSHOT.jar"]

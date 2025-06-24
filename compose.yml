@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME-techmouse}
+      POSTGRES_PASSWORD: ${DB_PASSWORD-techmouse}
+      POSTGRES_DB: ${DB_NAME-GameJournal}
+    shm_size: 128mb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ${DB_NAME-GameJournal}"]
+      interval: 60s
+      retries: 5
+      start_period: 2s
+      timeout: 5s
+    ports:
+      - 5432:5432
+
+  backend:
+    restart: always
+    build: GameJournal
+    container_name: GameJournal
+    ports:
+      - 8080:8080
+    environment:
+      - DB_HOST=${DB_HOST-postgres}
+      - DB_USERNAME=${DB_USERNAME-techmouse}
+      - DB_PASSWORD=${DB_PASSWORD-techmouse}
+    depends_on: 
+      postgres:
+        condition: service_healthy
