@@ -7,18 +7,23 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "GameJournal-User")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "GameJournal_User")
 @Setter
 @Getter
-public class User {
+public abstract class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String username;
-    private String password;
+    protected Integer id;
+    protected String username;
+    protected String password;
+
+    protected String role;
 
     @OneToMany(mappedBy = "user")
     private List<PlayedGame> playedGames;
+
+
 
 }
