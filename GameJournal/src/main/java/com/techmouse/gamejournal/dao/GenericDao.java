@@ -1,4 +1,4 @@
-package com.techmouse.dao;
+package com.techmouse.gamejournal.dao;
 
 import java.util.Collection;
 import java.util.List;

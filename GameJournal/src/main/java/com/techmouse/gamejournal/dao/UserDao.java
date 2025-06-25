@@ -1,6 +1,6 @@
-package com.techmouse.dao;
+package com.techmouse.gamejournal.dao;
 
-import com.techmouse.model.User;
+import com.techmouse.gamejournal.model.User;
 
 public class UserDao extends BaseDao<User> {
 

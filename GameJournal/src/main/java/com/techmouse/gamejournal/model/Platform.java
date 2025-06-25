@@ -1,4 +1,4 @@
-package com.techmouse.model;
+package com.techmouse.gamejournal.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

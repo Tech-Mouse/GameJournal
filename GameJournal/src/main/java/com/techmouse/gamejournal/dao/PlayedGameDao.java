@@ -1,6 +1,6 @@
-package com.techmouse.dao;
+package com.techmouse.gamejournal.dao;
 
-import com.techmouse.model.PlayedGame;
+import com.techmouse.gamejournal.model.PlayedGame;
 
 public class PlayedGameDao extends BaseDao<PlayedGame> {
 

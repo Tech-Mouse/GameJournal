@@ -1,4 +1,4 @@
-package com.techmouse.dao;
+package com.techmouse.gamejournal.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

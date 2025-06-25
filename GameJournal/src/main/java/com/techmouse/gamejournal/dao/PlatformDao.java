@@ -1,6 +1,6 @@
-package com.techmouse.dao;
+package com.techmouse.gamejournal.dao;
 
-import com.techmouse.model.Platform;
+import com.techmouse.gamejournal.model.Platform;
 
 public class PlatformDao extends BaseDao<Platform> {
     public PlatformDao() {
